@@ -39,8 +39,8 @@ void main() => runApp(RestaurantFinder());
 class RestaurantFinder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<LocationBloc>(
-      bloc: LocationBloc(),
+    return BlocProvider<CityBloc>(
+      bloc: CityBloc(),
       child: MaterialApp(
         title: 'Restaurant Finder',
         theme: ThemeData(

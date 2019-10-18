@@ -5,13 +5,13 @@ import 'package:restaurant_finder/DataLayer/zomato_client.dart';
 
 import '../DataLayer/location.dart';
 
-class LocationQueryBloc implements Bloc {
-  final _controller = StreamController<List<Location>>();
+class CityQueryBloc implements Bloc {
+  final _controller = StreamController<List<City>>();
   final _client = ZomatoClient();
-  Stream<List<Location>> get locationStream => _controller.stream;
+  Stream<List<City>> get cityStream => _controller.stream;
 
   void submitQuery(String query) async {
-    final results = await _client.fetchLocations(query);
+    final results = await _client.fetchCities(query);
     _controller.sink.add(results);
   }
 

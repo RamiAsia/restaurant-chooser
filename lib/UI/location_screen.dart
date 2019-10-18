@@ -5,9 +5,9 @@ import 'package:restaurant_finder/BLoC/location_query_bloc.dart';
 class LocationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final bloc = LocationQueryBloc();
+    final bloc = CityQueryBloc();
 
-    return BlocProvider<LocationQueryBloc>(
+    return BlocProvider<CityQueryBloc>(
       bloc: bloc,
       child: Scaffold(
         appBar: AppBar(
@@ -20,7 +20,7 @@ class LocationScreen extends StatelessWidget {
               child: TextField(
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  hintText: "Enter a location",
+                  hintText: "Enter a city",
                 ),
                 onChanged: (query) => bloc.submitQuery(query),
               ),

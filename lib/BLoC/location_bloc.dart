@@ -4,21 +4,21 @@ import 'package:restaurant_finder/BLoC/bloc.dart';
 
 import '../DataLayer/location.dart';
 
-class LocationBloc extends Bloc {
-  Location _location;
-  Location get selectedLocation => _location;
+class CityBloc extends Bloc {
+  City _city;
+  City get selectedCity => _city;
 
-  final _locationController = StreamController<Location>();
+  final _cityController = StreamController<City>();
 
-  Stream<Location> get locationSteeam => _locationController.stream;
+  Stream<City> get cityStream => _cityController.stream;
 
-  void selectLocation(Location location) {
-    _location = location;
-    _locationController.sink.add(location);
+  void selectCity(City city) {
+    _city = city;
+    _cityController.sink.add(city);
   }
 
   @override
   void dispose() {
-    _locationController.close();
+    _cityController.close();
   }
 }
