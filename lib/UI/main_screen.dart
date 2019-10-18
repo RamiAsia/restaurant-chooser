@@ -7,7 +7,7 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<Object>(
-      stream: BlocProvider.of<LocationBloc>(context).locationSteeam,
+      stream: BlocProvider.of<CityBloc>(context).cityStream,
       builder: (context, snapshot) {
         final location = snapshot.data;
         if (location == null){

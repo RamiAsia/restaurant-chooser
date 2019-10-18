@@ -42,18 +42,18 @@ class ZomatoClient {
   final _host = 'developers.zomato.com';
   final _contextRoot = 'api/v2.1';
 
-  Future<List<Location>> fetchLocations(String query) async {
+  Future<List<City>> fetchCities(String query) async {
     final results = await request(
         path: 'locations', parameters: {'query': query, 'count': '10'});
 
     final suggestions = results['location_suggestions'];
     return suggestions
-        .map<Location>((json) => Location.fromJson(json))
+        .map<City>((json) => City.fromJson(json))
         .toList(growable: false);
   }
 
   Future<List<Restaurant>> fetchRestaurants(
-      Location location, String query) async {
+      City location, String query) async {
     final results = await request(path: 'search', parameters: {
       'entity_id': location.id.toString(),
       'entity_type': location.type,
