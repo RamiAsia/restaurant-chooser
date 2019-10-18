@@ -29,7 +29,7 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:restaurant_finder/BLoC/location_bloc.dart';
+import 'package:restaurant_finder/BLoC/city_bloc.dart';
 import 'package:restaurant_finder/UI/main_screen.dart';
 
 import 'package:restaurant_finder/BLoC/bloc_provider.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_finder/BLoC/bloc_provider.dart';
-import 'package:restaurant_finder/BLoC/location_bloc.dart';
-import 'package:restaurant_finder/UI/location_screen.dart';
+import 'package:restaurant_finder/BLoC/city_bloc.dart';
+import 'package:restaurant_finder/UI/city_screen.dart';
 
 class MainScreen extends StatelessWidget {
   @override

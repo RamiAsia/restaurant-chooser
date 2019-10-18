@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:restaurant_finder/BLoC/bloc.dart';
 import 'package:restaurant_finder/DataLayer/zomato_client.dart';
 
-import '../DataLayer/location.dart';
+import '../DataLayer/city.dart';
 
 class CityQueryBloc implements Bloc {
   final _controller = StreamController<List<City>>();

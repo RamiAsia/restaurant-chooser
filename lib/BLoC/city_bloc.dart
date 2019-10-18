@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:restaurant_finder/BLoC/bloc.dart';
 
-import '../DataLayer/location.dart';
+import '../DataLayer/city.dart';
 
 class CityBloc extends Bloc {
   City _city;
