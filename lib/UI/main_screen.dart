@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:restaurant_finder/BLoC/bloc_provider.dart';
 import 'package:restaurant_finder/BLoC/city_bloc.dart';
 import 'package:restaurant_finder/UI/city_screen.dart';
+import 'package:restaurant_finder/UI/restaurant_screen.dart';
 
 class MainScreen extends StatelessWidget {
   @override
@@ -9,12 +10,12 @@ class MainScreen extends StatelessWidget {
     return StreamBuilder<Object>(
       stream: BlocProvider.of<CityBloc>(context).cityStream,
       builder: (context, snapshot) {
-        final location = snapshot.data;
-        if (location == null){
+        final city = snapshot.data;
+        if (city == null){
           return LocationScreen();
         }
 
-        return Container();
+        return RestaurantScreen(city: city,);
       }
     );
   }
