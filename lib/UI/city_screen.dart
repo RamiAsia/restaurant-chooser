@@ -36,15 +36,6 @@ class CityScreen extends StatelessWidget {
             ),
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.edit_location),
-          onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => CityScreen(
-              isFullScreenDialog: true,
-            ),
-            fullscreenDialog: true,
-          )),
-        ),
       ),
     );
   }
