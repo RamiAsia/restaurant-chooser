@@ -61,19 +61,26 @@ class ZomatoClient {
       'count': '10'
     });
 
-    final restaurants = results['restaurants']
+    if (results.length > 0) {
+      final restaurants = results['restaurants']
         .map<Restaurant>((json) => Restaurant.fromJson(json['restaurant']))
         .toList(growable: false);
 
-    return restaurants;
+      return restaurants;
+    }
+
+    return List<Restaurant>();
   }
 
   Future<Map> request(
       {@required String path, Map<String, String> parameters}) async {
     final uri = Uri.https(_host, '$_contextRoot/$path', parameters);
     final results = await http.get(uri, headers: _headers);
-    final jsonObject = json.decode(results.body);
-    return jsonObject;
+    if (results.statusCode == 200) {
+      return json.decode(results.body);
+    }
+
+    return Map();
   }
 
   Map<String, String> get _headers =>

@@ -3,10 +3,13 @@ import 'package:restaurant_finder/BLoC/bloc_provider.dart';
 import 'package:restaurant_finder/BLoC/restaurant_bloc.dart';
 import 'package:restaurant_finder/DataLayer/city.dart';
 import 'package:restaurant_finder/DataLayer/restaurant.dart';
+import 'package:restaurant_finder/UI/city_screen.dart';
 import 'package:restaurant_finder/UI/restaurant_tile.dart';
 
+import 'favorites_screen.dart';
+
 class RestaurantScreen extends StatelessWidget {
-  City city;
+  final City city;
 
   RestaurantScreen({Key key, @required this.city}) : super(key: key);
 
@@ -15,8 +18,24 @@ class RestaurantScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(city.title),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.favorite_border),
+            onPressed: () => Navigator.of(context)
+                .push(MaterialPageRoute(builder: (_) => FavoriteScreen())),
+          ),
+        ],
       ),
       body: _buildSearch(context),
+      floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.edit_location),
+          onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => CityScreen(
+              isFullScreenDialog: true,
+            ),
+            fullscreenDialog: true,
+          )),
+        ),
     );
   }
 
@@ -70,7 +89,9 @@ class RestaurantScreen extends StatelessWidget {
       separatorBuilder: (context, index) => Divider(),
       itemBuilder: (context, index) {
         final Restaurant restaurant = results[index];
-        return RestaurantTile(restaurant: restaurant,);
+        return RestaurantTile(
+          restaurant: restaurant,
+        );
       },
     );
   }

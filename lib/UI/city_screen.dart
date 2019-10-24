@@ -4,10 +4,10 @@ import 'package:restaurant_finder/BLoC/city_bloc.dart';
 import 'package:restaurant_finder/BLoC/city_query_bloc.dart';
 import 'package:restaurant_finder/DataLayer/city.dart';
 
-class LocationScreen extends StatelessWidget {
+class CityScreen extends StatelessWidget {
   final bool isFullScreenDialog;
 
-  LocationScreen({Key key, this.isFullScreenDialog = false}) : super(key: key);
+  CityScreen({Key key, this.isFullScreenDialog = false}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +35,15 @@ class LocationScreen extends StatelessWidget {
               child: _buildResults(bloc),
             ),
           ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.edit_location),
+          onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => CityScreen(
+              isFullScreenDialog: true,
+            ),
+            fullscreenDialog: true,
+          )),
         ),
       ),
     );
